@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Dingbats</title>
+   <style>
+      * {
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
+      }
+
+      html { scroll-snap-type: y mandatory; }
+
+      body {
+         background-image: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+         background-attachment: fixed;
+      }
+      section, article, .layer {
+         align-items: center;
+         display: flex;
+         justify-content: center;
+      }
+      section {
+         height: 100vh;
+         scroll-snap-align: start;
+      }
+      article {
+         background-color: #fff;
+         border: 10px solid #fff;
+         border-radius: 0.5rem;
+         box-shadow: 0 10px 20px #3338;
+         color: #222;
+         font-size: 8vw;
+         font-family: sans-serif;
+         position: relative;
+         text-align: center;
+         height: 60vh;
+         width: 80vw;
+      }
+      sup {
+         font-size: 0.6em;
+         transform: translateY( -0.5em );
+      }
+
+      /* Overlay layer in a dingbat */
+      .layer {
+         bottom: 0;
+         left: 0;
+         position: absolute;
+         right: 0;
+         top: 0;
+      }
+
+      /* Utilities */
+      .blue { color: #33aaff; }
+      .bold { font-weight: bold }
+      .flip-x { transform: scaleX( -1 ) }
+      .flip-y { transform: scaleY( -1 ) }
+      .gold {
+            background:
+               linear-gradient(
+                  45deg,
+                  rgba(255,255,44,1) 0%,
+                  rgba(200,179,44,1) 50%,
+                  rgba(255,255,44,1) 100%
+               );
+            color: transparent;
+            -webkit-background-clip: text;
+      }
+      .green { color: #44dd33 }
+      .grey { color: #555 }
+      .huge { font-size: 20vw }
+      .large { font-size: 13vw }
+      .mono { font-family: monospace }
+      .pink { color: hotpink }
+      .rise { position: relative; top: -0.46em }
+      .rot45 { transform: rotate( 45deg ) }
+      .rot90 { transform: rotate( 90deg ) }
+      .rot-45 { transform: rotate( -45deg ) }
+      .rot-90 { transform: rotate( -90deg ) }
+      .serif { font-family: serif }
+      .small { font-size: 6vw }
+      .spaced-w { letter-spacing: 1.25em }
+      .tiny { font-size: 3vw }
+      .vertical { text-orientation: upright; writing-mode: vertical-rl }
+      .white { color: white }
+
+      /* Manual tweaks per slide */
+      .q .huge {
+         color: #333;
+      }
+      .henry .vertical {
+         /* Manual tweak to line up vertical HENRY */
+         letter-spacing: -0.1em;
+      }
+      .cream {
+         color: #66aa33;
+      }
+      .cream .layer {
+         color: #ff3366;
+         mix-blend-mode: darken;
+         transform: translateX( 0.15em );
+      }
+
+      .missing-link {
+         letter-spacing: -0.05em;
+      }
+      .missing-link .white {
+         text-shadow: 0 1px 5px #0006;
+      }
+
+      .eyes span {
+         /*font-size: 1.6em;*/
+         padding: 0 0.5em;
+      }
+   </style>
+</head>
+<body>
+   <section>
+      <article>TI<span class="blue">♂</span>TA<span class="blue">♂</span>NI<span class="blue">♂</span>C</article></section>
+   <section>
+      <article class="eyes">
+         <span class="serif">i</span>
+         <span class="grey huge">↱</span>
+         <span class="serif">i</span>
+      </article>
+   </section>
+   <section><article class="serif bold">PotOOOOOOOO</article></section>
+   <section><article class="bold">Pol<span class="pink">mum</span>ice</article></section>
+   <section>
+      <article class="bold nose">
+         <svg viewBox="-18 -85 100 200">
+            <path
+               fill="none"
+               id="nose-curve"
+               d="M0 26.626h13.907s30.358 3.418 43.576-9.021c7.712-7.258 8.48-17.6 8.48-17.6"
+            />
+            <text>
+               <textPath style="font-size: 20px" xlink:href="#nose-curve">
+                  N O S   E
+               </textPath>
+            </text>
+         </svg>
+         </svg>
+      </article>
+   </section>
+   <section><article class="bold large serif">Waether</article></section>
+   <section><article><span class="large flip-y">Bowled</span></article></section>
+   <section><article>G<span class="bold">MADE</span>B</article></section>
+   <section><article>R<span class="bold gold">O</span>B<span class="bold gold">BE</span>RS</article></section>
+   <section><article class="serif">Temper<span class="rise">a</span>ture</article></section>
+   <section>
+      <article class="henry bold small mono">
+         HENRY
+         <span class="layer vertical">HENRY</span>
+      </article>
+   </section>
+   <section>
+      <article class="missing-link serif">
+         <span>
+            ABCDEFGH<span class="white">I</span>J<span class="white">KL</span>M<br /><span class="white">N</span>OPQRSTUVWXYZ
+         </span>
+      </article>
+   </section>
+   <section>
+      <article class="q">
+         <span class="huge">Q</span>
+         <span class="layer tiny">1<sup>st</sup></span>
+      </article>
+   </section>
+   <section>
+      <article class="bishop">
+         <svg viewbox="-60 0 600 100" style="height: 100%; width: 100%">
+            <path
+               fill="none"
+               id="curve"
+               d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
+            />
+            <text style="font-size: 7.8rem">
+               <textPath xlink:href="#curve">
+                  Bishop
+               </textPath>
+            </text>
+         </svg>
+      </article>
+   </section>
+   <section>
+      <article class="bold">
+         <span class="rot-45">K</span>&nbsp;
+         <span class="flip-x">E</span>&nbsp;
+         <span class="rot45">A</span>&nbsp;
+         <span class="rot-45">C</span>
+      </article>
+   </section>
+   <section>
+      <article class="cream">
+         <span>Cream</span>
+         <span class="layer">Cream</span>
+      </article>
+   </section>
+   <section>
+      <article>
+         <span class="bold">P</span>
+         INN
+         <span class="bold">A</span>
+         C
+         <span class="bold">L</span>
+         E
+         <span class="bold">S</span>
+      </article>
+   </section>
+</body>
+</html>
