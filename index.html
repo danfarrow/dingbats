@@ -2,7 +2,7 @@
 
 Roadmap
 -------
-* Add answers & "Show answer" mechanism
+* Clamp font size for smaller screens
 
 -->
 <!DOCTYPE html>
@@ -30,6 +30,7 @@ Roadmap
       }
       section {
          height: 100vh;
+         position: relative;
          scroll-snap-align: start;
       }
       article {
@@ -45,9 +46,16 @@ Roadmap
          height: 60vh;
          width: 80vw;
       }
+      article.wrap {
+         flex-wrap: wrap;
+      }
       sup {
          font-size: 0.6em;
          transform: translateY( -0.5em );
+      }
+      svg {
+         height: 100%;
+         width: 100%;
       }
 
       /* Overlay layer in a dingbat */
@@ -81,6 +89,7 @@ Roadmap
       .huge { font-size: 20vw }
       .large { font-size: 13vw }
       .left { text-align: left }
+      .medium { font-size: 10vw }
       .mono { font-family: monospace }
       .narrow { letter-spacing:-0.2em }
       .pink { color: hotpink }
@@ -97,7 +106,9 @@ Roadmap
       .vertical { text-orientation: upright; writing-mode: vertical-rl }
       .white { color: white }
 
-      /* Manual tweaks per slide */
+      /**
+       * Manual tweaks per slide
+       */
       .q .huge {
          color: #333;
       }
@@ -130,23 +141,77 @@ Roadmap
          /*font-size: 1.6em;*/
          padding: 0 0.5em;
       }
+
+      section .answer {
+         display: none;
+      }
+
+      /**
+       * Show / Hide answers
+       */
+      #answers-state { display: none }
+      #answers-state:checked ~ section::after {
+         bottom: 10vh;
+         content: attr( data-answer );
+         font-family: sans-serif;
+         font-size: 2rem;
+         font-style: italic;
+         position: absolute;
+      }
+
+      #toggle { cursor: pointer }
+      #toggle::after {
+         content: "☐";
+         padding-left: 0.25em;
+      }
+      #answers-state:checked ~ section #toggle::after {
+         content: "☑";
+      }
+
    </style>
 </head>
 <body>
+   <input type="checkbox" id="answers-state">
+
    <section>
-      <article>TI<span class="blue">♂</span>TA<span class="blue">♂</span>NI<span class="blue">♂</span>C</article></section>
-   <section>
+      <article class="tiny">
+         <span>
+            <h1>Good luck solving these!</h1>
+            <em>
+               Scroll to the bottom<br>
+               to reveal the answers
+            </em>
+         </span>
+      </article>
+   </section>
+   <section id="top" data-answer="Three Men in a Boat">
+      <article class="medium">
+         TI<span class="blue">♂</span>
+         TA<span class="blue">♂</span>
+         NI<span class="blue">♂</span>
+         C
+      </article>
+   </section>
+
+   <section data-answer="Right between the eyes">
       <article class="eyes">
          <span class="serif">i</span>
          <span class="grey huge">↱</span>
          <span class="serif">i</span>
       </article>
    </section>
-   <section><article class="bold small">PotOOOOOOOO</article></section>
-   <section><article class="bold">Pol<span class="pink">mum</span>ice</article></section>
-   <section>
+
+   <section data-answer="Potatoes">
+      <article class="bold small">PotOOOOOOOO</article>
+   </section>
+
+   <section data-answer="Mother-in-law">
+      <article class="bold">Pol<span class="pink">mum</span>ice</article>
+   </section>
+
+   <section data-answer="Turn your nose up">
       <article class="bold nose">
-         <svg viewBox="8 -18 50 60" style="height: 100%; width: 100vw">
+         <svg viewBox="8 -18 50 60">
             <path
                fill="none"
                id="nose-curve"
@@ -161,12 +226,28 @@ Roadmap
          </svg>
       </article>
    </section>
-   <section><article class="bold large serif">Waether</article></section>
-   <section><article><span class="large flip-y">Bowled</span></article></section>
-   <section><article>G<span class="bold">MADE</span>B</article></section>
-   <section><article>R<span class="bold gold">O</span>B<span class="bold gold">BE</span>RS</article></section>
-   <section><article class="serif">Temper<span class="rise">a</span>ture</article></section>
-   <section>
+
+   <section data-answer="A bad spell of weather">
+      <article class="bold large serif">Waether</article>
+   </section>
+
+   <section data-answer="Bowled over">
+      <article><span class="large flip-y">Bowled</span></article>
+   </section>
+
+   <section data-answer="Made in Britain">
+      <article>G<span class="bold">MADE</span>B</article>
+   </section>
+
+   <section data-answer="Honour among thieves">
+      <article>R<span class="bold gold">O</span>B<span class="bold gold">BE</span>RS</article>
+   </section>
+
+   <section data-answer="A rise in temperature">
+      <article class="serif medium">Temper<span class="rise">a</span>ture</article>
+   </section>
+
+   <section data-answer="Kings Cross">
       <article class="henry bold small mono">
          <!-- Top row -->
          <span></span>
@@ -186,22 +267,25 @@ Roadmap
          <!-- <span class="layer vertical">HENRY</span> -->
       </article>
    </section>
-   <section>
+
+   <section data-answer="Missing link">
       <article class="missing-link serif">
          <span class="small">
             ABCDEFGH<span class="white">I</span>J<span class="white">KL</span>M<br /><span class="white">N</span>OPQRSTUVWXYZ
          </span>
       </article>
    </section>
-   <section>
+
+   <section data-answer="First in the queue">
       <article class="q">
          <span class="huge">Q</span>
          <span class="layer tiny">1<sup>st</sup></span>
       </article>
    </section>
-   <section>
+
+   <section data-answer="Archbishop">
       <article class="bishop">
-         <svg viewbox="-60 0 600 100" style="height: 100%; width: 100%">
+         <svg viewbox="-60 0 600 100">
             <path
                fill="none"
                id="curve"
@@ -215,7 +299,8 @@ Roadmap
          </svg>
       </article>
    </section>
-   <section>
+
+   <section data-answer="Cake mix">
       <article class="bold">
          <span class="rot-45">K</span>&nbsp;
          <span class="flip-x">E</span>&nbsp;
@@ -223,13 +308,15 @@ Roadmap
          <span class="rot-45">C</span>
       </article>
    </section>
-   <section>
+
+   <section data-answer="Double cream">
       <article class="cream">
          <span>Cream</span>
          <span class="layer">Cream</span>
       </article>
    </section>
-   <section>
+
+   <section data-answer="Friends in high places">
       <article>
          <span class="bold">P</span>
          INN
@@ -240,5 +327,17 @@ Roadmap
          <span class="bold">S</span>
       </article>
    </section>
+
+   <section id="bottom">
+      <article class="tiny">
+         <span>
+            <h1>
+               <label for="answers-state" id="toggle"><em>Reveal answers</em></label>
+            </h1>
+            <a href="#top"><em>&hellip;and see how you did!</em></a>
+         </span>
+      </article>
+   </section>
+
 </body>
 </html>
