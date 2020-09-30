@@ -1,3 +1,10 @@
+<!--
+
+Roadmap
+-------
+* Add answers & "Show answer" mechanism
+
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +38,7 @@
          border-radius: 0.5rem;
          box-shadow: 0 10px 20px #3338;
          color: #222;
-         font-size: 8vw;
+         font-size: 12vw;
          font-family: sans-serif;
          position: relative;
          text-align: center;
@@ -55,6 +62,7 @@
       /* Utilities */
       .blue { color: #33aaff; }
       .bold { font-weight: bold }
+      .centre { text-align: center }
       .flip-x { transform: scaleX( -1 ) }
       .flip-y { transform: scaleY( -1 ) }
       .gold {
@@ -72,8 +80,11 @@
       .grey { color: #555 }
       .huge { font-size: 20vw }
       .large { font-size: 13vw }
+      .left { text-align: left }
       .mono { font-family: monospace }
+      .narrow { letter-spacing:-0.2em }
       .pink { color: hotpink }
+      .right { text-align: right }
       .rise { position: relative; top: -0.46em }
       .rot45 { transform: rotate( 45deg ) }
       .rot90 { transform: rotate( 90deg ) }
@@ -81,7 +92,7 @@
       .rot-90 { transform: rotate( -90deg ) }
       .serif { font-family: serif }
       .small { font-size: 6vw }
-      .spaced-w { letter-spacing: 1.25em }
+      .tight { line-height:0.8 }
       .tiny { font-size: 3vw }
       .vertical { text-orientation: upright; writing-mode: vertical-rl }
       .white { color: white }
@@ -90,10 +101,15 @@
       .q .huge {
          color: #333;
       }
-      .henry .vertical {
-         /* Manual tweak to line up vertical HENRY */
-         letter-spacing: -0.1em;
+
+      .henry {
+         display: grid;
+         grid-template-columns: 1fr 0.6em 1fr;
+         grid-template-rows: 1fr 0.8em 1fr;
+         grid-column-gap: 0px;
+         grid-row-gap: 0px;
       }
+
       .cream {
          color: #66aa33;
       }
@@ -126,11 +142,11 @@
          <span class="serif">i</span>
       </article>
    </section>
-   <section><article class="serif bold">PotOOOOOOOO</article></section>
+   <section><article class="bold small">PotOOOOOOOO</article></section>
    <section><article class="bold">Pol<span class="pink">mum</span>ice</article></section>
    <section>
       <article class="bold nose">
-         <svg viewBox="-18 -85 100 200">
+         <svg viewBox="8 -18 50 60" style="height: 100%; width: 100vw">
             <path
                fill="none"
                id="nose-curve"
@@ -152,13 +168,27 @@
    <section><article class="serif">Temper<span class="rise">a</span>ture</article></section>
    <section>
       <article class="henry bold small mono">
-         HENRY
-         <span class="layer vertical">HENRY</span>
+         <!-- Top row -->
+         <span></span>
+         <span class="tight" style="align-self: end">H<br>E</span>
+         <span></span>
+
+         <!-- Middle row -->
+         <span class="right">HE</span>
+         <span class="centre">N</span>
+         <span class="left">RY</span>
+
+         <!-- Bottom row -->
+         <span></span>
+         <span class="tight" style="align-self: start">R<br>Y</span>
+         <span></span>
+
+         <!-- <span class="layer vertical">HENRY</span> -->
       </article>
    </section>
    <section>
       <article class="missing-link serif">
-         <span>
+         <span class="small">
             ABCDEFGH<span class="white">I</span>J<span class="white">KL</span>M<br /><span class="white">N</span>OPQRSTUVWXYZ
          </span>
       </article>
